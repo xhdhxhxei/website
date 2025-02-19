@@ -39,6 +39,65 @@
             box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
         }
 
+        .background-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .shape {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.15);
+      animation: float 10s ease-in-out infinite;
+      mix-blend-mode: lighten;
+      cursor: grab;
+    }
+    .shape.circle {
+      border-radius: 50%;
+    }
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate(20px, 20px) rotate(180deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+    
+    /* Header Styling */
+    .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+    
+    .shape {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.15);
+        animation: float 10s ease-in-out infinite;
+        mix-blend-mode: lighten;
+    }
+    
+    .shape.circle {
+        border-radius: 50%;
+    }
+    
+    @keyframes float {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(20px, 20px) rotate(180deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
         nav {
             display: flex;
             gap: 30px;
@@ -91,53 +150,123 @@
         /* Your existing header styles... */
 
         /* Projects Grid Container */
-        .projects-container {
-            max-width: 1400px;
-            margin: 120px auto 40px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* Projects Container */
+.projects-container {
+    max-width: 1200px; /* Increased from 800px for wider boxes */
+    margin: 120px auto 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
-        .project-box {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #00bcd4;
-            border-radius: 15px;
-            padding: 20px;
-            min-height: 250px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
 
-        .project-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
+/* Optional: Adjust project box width for better single-column appearance */
+.project-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #00bcd4;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00bcd4;
-            margin-bottom: 15px;
-        }
+.project-content {
+    display: flex;
+    gap: 20px; /* Reduced from 30px */
+    align-items: flex-start;
+}
 
-        .project-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
+.project-image {
+    width: 200px; /* Reduced from 300px */
+    min-width: 200px; /* Reduced from 300px */
+    height: 150px; /* Reduced from 200px */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #00bcd4;
+}
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-box:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px; /* Changed from fixed height to min-height */
+    position: relative;
+}
+
+        
+.project-title {
+    font-size: 1.3rem; /* Reduced from 1.5rem */
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    overflow: auto; /* Allows scrolling if text is too long */
+    max-height: 85px; /* Limits height to prevent pushing tags too far */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #00bcd4 transparent; /* For Firefox */
+}
+
+.project-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.project-description::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.project-description::-webkit-scrollbar-thumb {
+    background-color: #00bcd4;
+    border-radius: 3px;
+}
+
+.project-box {
+    padding: 20px;
+    height: auto; /* Allows box to expand with content */
+}
+
+.year-tag {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: rgba(0, 188, 212, 0.2);
+    color: #00bcd4;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #00bcd4;
+}
+
+/* Optional hover effect for year tag */
+.project-box:hover .year-tag {
+    background: #00bcd4;
+    color: #000000;
+}
+
+
+.project-tech {
+    margin-top: auto; /* Push to bottom */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
         .tech-tag {
             background: #00bcd4;
@@ -147,6 +276,19 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
+
+        .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.click-disclaimer {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
 
         @media (max-width: 768px) {
             header {
@@ -161,10 +303,32 @@
                 font-size: 1rem;
                 padding: 6px 15px;
             }
+            .project-content {
+                 flex-direction: column;
+         }
+    
+          .project-image {
+                 width: 100%;
+                 min-width: 100%;
+           }
         }
+        
     </style>
 </head>
 <body>
+
+    <div class="background-shapes">
+        <div class="shape circle" style="width: 100px; height: 100px; top: 10%; left: 15%; animation-duration: 8s;"></div>
+        <div class="shape square" style="width: 120px; height: 120px; top: 50%; left: 70%; animation-duration: 12s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 80%; left: 30%; animation-duration: 10s;"></div>
+        <div class="shape square" style="width: 130px; height: 130px; top: 20%; left: 80%; animation-duration: 14s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 30%; left: 40%; animation-duration: 9s;"></div>
+        <div class="shape square" style="width: 110px; height: 110px; top: 60%; left: 10%; animation-duration: 11s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 5%; left: 60%; animation-duration: 13s;"></div>
+        <div class="shape square" style="width: 140px; height: 140px; top: 75%; left: 85%; animation-duration: 15s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top:45%; left:25%; animation-duration:7s;"></div>
+      </div>
+
     <header>
         <nav>
             <a href="index.html" >Home</a>
@@ -175,75 +339,67 @@
 
     <main class="projects-container">
         <!-- Project 1 -->
-        <div class="project-box">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
+        <!-- Project 1 -->
+<!-- Project 1 -->
+<div class="project-box">
+    <div class="project-content">
+        <div class="project-image">
+            <img src="images/ConveyorSystem.png" alt="Project One Preview">
+        </div>
+        <div class="project-info">
+            <h2 class="project-title">Conveyor system</h2>
+            <span class="year-tag">2024</span>
+            <p class="project-description">A project I've started in 2024, using a bezier curve to find a smooth path to a designated location. Inspiration for this system comes mainly from a game called "Satisfactory". 
+                Id consider the project to be mainly a success, even though i didnt achieve the desired smoothness i was looking for. Im gonna add more features in the future, like making the system aknowledge block rotation and obstacles.</p>
+            <div class="bottom-container">
+                <div class="project-tech">
+                    <span class="tech-tag">LuaU</span>
+                </div>
+                <span class="click-disclaimer">Click box for more</span>
             </div>
         </div>
-        <div class="project-box2">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-        </div>
-        <div class="project-box3">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-        </div>
-        <div class="project-box4">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-        </div>
-        <div class="project-box5">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-        </div>
-        <div class="project-box6">
-            <div>
-                <h2 class="project-title">Project One</h2>
-                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
-            </div>
-            <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
-        </div>
-        <!-- Repeat for Projects 2-6 -->
-        <!-- Copy the project-box div and modify content for each project -->
+    </div>
+</div>
+
+
 
     </main>
+    <script>
+        // Draggable shapes functionality remains unchanged
+        const shapes = document.querySelectorAll('.shape, .triangle');
+        let selectedElement = null;
+        let offset = { x: 0, y: 0 };
+        
+        shapes.forEach(shape => {
+          shape.addEventListener('mousedown', dragStart);
+        });
+        
+        function dragStart(e) {
+          selectedElement = e.target;
+          selectedElement.style.animationPlayState = "paused";
+          
+          const rect = selectedElement.getBoundingClientRect();
+          offset.x = e.clientX - rect.left;
+          offset.y = e.clientY - rect.top;
+        
+          document.addEventListener('mousemove', dragging);
+          document.addEventListener('mouseup', dragEnd);
+        }
+        
+        function dragging(e) {
+          if (!selectedElement) return;
+          selectedElement.style.left = (e.clientX - offset.x) + 'px';
+          selectedElement.style.top = (e.clientY - offset.y) + 'px';
+        }
+        
+        function dragEnd() {
+          if (selectedElement) {
+            selectedElement.style.animationPlayState = "running";
+            selectedElement = null;
+          }
+          document.removeEventListener('mousemove', dragging);
+          document.removeEventListener('mouseup', dragEnd);
+        }
+      </script>
 </body>
 </html>
