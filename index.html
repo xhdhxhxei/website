@@ -205,30 +205,28 @@
 
 /* Mobile */
 /* Mobile */
+/* Mobile */
 @media (max-width: 480px) {
     header {
-        flex-direction: column;
-        padding-top: 60px; /* Add space at the top since profile is hidden */
+        flex-direction: row; /* Keep it in row to maintain layout */
+        padding: 15px;
     }
     
-    .logo {
-        display: none; /* Hides both profile pic and username */
+    .logo, .profile-container, .profile-pic, .username {
+        display: none !important; /* Force hide all profile-related elements */
     }
     
     nav {
         width: 100%;
         justify-content: space-around;
-        padding: 15px 0;
+        padding: 10px 0;
     }
     
     nav a {
-        font-size: 1.4rem; /* Slightly smaller font size for mobile */
-    }
-    
-    .content-container {
-        padding: 0 15px;
+        font-size: 1.4rem;
     }
 }
+
 
 
 
