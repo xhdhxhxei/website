@@ -21,7 +21,6 @@
             color: white;
         }
 
-        /* Header styles (keeping your original styling) */
         header {
             width: 100%;
             background-color: rgba(0, 0, 0, 0.3);
@@ -70,7 +69,6 @@
       }
     }
     
-    /* Header Styling */
     .background-shapes {
         position: absolute;
         top: 0;
@@ -147,12 +145,9 @@
             border-color: #00a0b7;
             color: #000000;
         }
-        /* Your existing header styles... */
 
-        /* Projects Grid Container */
-        /* Projects Container */
 .projects-container {
-    max-width: 1200px; /* Increased from 800px for wider boxes */
+    max-width: 1200px;
     margin: 120px auto 40px;
     padding: 20px;
     display: flex;
@@ -160,8 +155,6 @@
     gap: 40px;
 }
 
-
-/* Optional: Adjust project box width for better single-column appearance */
 .project-box {
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
@@ -202,7 +195,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 150px; /* Changed from fixed height to min-height */
+    min-height: 150px;
     position: relative;
 }
 
@@ -218,7 +211,7 @@
     margin-bottom: 10px;
     flex-grow: 1;
     overflow: auto; /* Allows scrolling if text is too long */
-    max-height: 85px; /* Limits height to prevent pushing tags too far */
+    max-height: 85px;
     scrollbar-width: thin; /* For Firefox */
     scrollbar-color: #00bcd4 transparent; /* For Firefox */
 }
@@ -238,7 +231,7 @@
 
 .project-box {
     padding: 20px;
-    height: auto; /* Allows box to expand with content */
+    height: auto;
 }
 
 .year-tag {
@@ -254,7 +247,6 @@
     border: 1px solid #00bcd4;
 }
 
-/* Optional hover effect for year tag */
 .project-box:hover .year-tag {
     background: #00bcd4;
     color: #000000;
@@ -262,7 +254,7 @@
 
 
 .project-tech {
-    margin-top: auto; /* Push to bottom */
+    margin-top: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -338,9 +330,6 @@
     </header>
 
     <main class="projects-container">
-        <!-- Project 1 -->
-        <!-- Project 1 -->
-<!-- Project 1 -->
 <div class="project-box">
     <div class="project-content">
         <div class="project-image">
@@ -436,13 +425,47 @@
         </div>
     </div>
 </div>
-
-
-
+<div class="project-box">
+    <div class="project-content">
+        <div class="project-image">
+            <img src="images/ConveyorSystem.png" alt="Project One Preview">
+        </div>
+        <div class="project-info">
+            <h2 class="project-title">Conveyor system</h2>
+            <span class="year-tag">2024</span>
+            <p class="project-description">A project I've started in 2024, using a bezier curve to find a smooth path to a designated location. Inspiration for this system comes mainly from a game called "Satisfactory". 
+                Id consider the project to be mainly a success, even though i didnt achieve the desired smoothness i was looking for. Im gonna add more features in the future, like making the system aknowledge block rotation and obstacles.</p>
+            <div class="bottom-container">
+                <div class="project-tech">
+                    <span class="tech-tag">LuaU</span>
+                </div>
+                <span class="click-disclaimer">Click box for more</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="project-box">
+    <div class="project-content">
+        <div class="project-image">
+            <img src="images/ConveyorSystem.png" alt="Project One Preview">
+        </div>
+        <div class="project-info">
+            <h2 class="project-title">Conveyor system</h2>
+            <span class="year-tag">2024</span>
+            <p class="project-description">A project I've started in 2024, using a bezier curve to find a smooth path to a designated location. Inspiration for this system comes mainly from a game called "Satisfactory". 
+                Id consider the project to be mainly a success, even though i didnt achieve the desired smoothness i was looking for. Im gonna add more features in the future, like making the system aknowledge block rotation and obstacles.</p>
+            <div class="bottom-container">
+                <div class="project-tech">
+                    <span class="tech-tag">LuaU</span>
+                </div>
+                <span class="click-disclaimer">Click box for more</span>
+            </div>
+        </div>
+    </div>
+</div>
 
     </main>
     <script>
-        // Draggable shapes functionality remains unchanged
         const shapes = document.querySelectorAll('.shape, .triangle');
         let selectedElement = null;
         let offset = { x: 0, y: 0 };
