@@ -207,25 +207,32 @@
 /* Mobile */
 /* Mobile */
 @media (max-width: 480px) {
-    header {
-        flex-direction: row; /* Keep it in row to maintain layout */
-        padding: 15px;
-    }
-    
     .logo, .profile-container, .profile-pic, .username {
-        display: none !important; /* Force hide all profile-related elements */
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
     }
-    
+
+    header {
+        padding: 15px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
     nav {
         width: 100%;
         justify-content: space-around;
-        padding: 10px 0;
     }
-    
+
     nav a {
         font-size: 1.4rem;
     }
 }
+
 
 
 
