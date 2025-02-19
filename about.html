@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio Projects">
+    <title>Portfolio | Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #000000, #13242c, #003f5c);
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
+        }
+
+        .background-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .shape {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.15);
+      animation: float 10s ease-in-out infinite;
+      mix-blend-mode: lighten;
+      cursor: grab;
+    }
+    .shape.circle {
+      border-radius: 50%;
+    }
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate(20px, 20px) rotate(180deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+    
+    .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+    
+    .shape {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.15);
+        animation: float 10s ease-in-out infinite;
+        mix-blend-mode: lighten;
+    }
+    
+    .shape.circle {
+        border-radius: 50%;
+    }
+    
+    @keyframes float {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(20px, 20px) rotate(180deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 20px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 188, 212, 0.2);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover {
+            border-color: #00bcd4;
+            color: #00bcd4;
+        }
+
+        nav a.active {
+            background: #00bcd4;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        nav a.active:hover {
+            background: #00a0b7;
+            border-color: #00a0b7;
+            color: #000000;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="background-shapes">
+        <div class="shape circle" style="width: 100px; height: 100px; top: 10%; left: 15%; animation-duration: 8s;"></div>
+        <div class="shape square" style="width: 120px; height: 120px; top: 50%; left: 70%; animation-duration: 12s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 80%; left: 30%; animation-duration: 10s;"></div>
+        <div class="shape square" style="width: 130px; height: 130px; top: 20%; left: 80%; animation-duration: 14s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 30%; left: 40%; animation-duration: 9s;"></div>
+        <div class="shape square" style="width: 110px; height: 110px; top: 60%; left: 10%; animation-duration: 11s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top: 5%; left: 60%; animation-duration: 13s;"></div>
+        <div class="shape square" style="width: 140px; height: 140px; top: 75%; left: 85%; animation-duration: 15s;"></div>
+        <div class="shape circle" style="width: 100px; height: 100px; top:45%; left:25%; animation-duration:7s;"></div>
+      </div>
+
+    <header>
+        <nav>
+            <a href="index.html" >Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html"class="active">About</a>
+        </nav>
+    </header>
+    </main>
+    <script>
+        const shapes = document.querySelectorAll('.shape, .triangle');
+        let selectedElement = null;
+        let offset = { x: 0, y: 0 };
+        
+        shapes.forEach(shape => {
+          shape.addEventListener('mousedown', dragStart);
+        });
+        
+        function dragStart(e) {
+          selectedElement = e.target;
+          selectedElement.style.animationPlayState = "paused";
+          
+          const rect = selectedElement.getBoundingClientRect();
+          offset.x = e.clientX - rect.left;
+          offset.y = e.clientY - rect.top;
+        
+          document.addEventListener('mousemove', dragging);
+          document.addEventListener('mouseup', dragEnd);
+        }
+        
+        function dragging(e) {
+          if (!selectedElement) return;
+          selectedElement.style.left = (e.clientX - offset.x) + 'px';
+          selectedElement.style.top = (e.clientY - offset.y) + 'px';
+        }
+        
+        function dragEnd() {
+          if (selectedElement) {
+            selectedElement.style.animationPlayState = "running";
+            selectedElement = null;
+          }
+          document.removeEventListener('mousemove', dragging);
+          document.removeEventListener('mouseup', dragEnd);
+        }
+      </script>
+</body>
+</html>
