@@ -66,36 +66,126 @@
     }
     
     /* Header Styling */
-    header {
-      width: 100%;
-      background-color: #ffffff00;
-      color: white;
-      padding: 30px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-    header nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(15px, 3vw, 30px);
-
-    }
-    header nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-    }
-    header nav a:hover {
-      color: #00bcd4;
+    .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
     }
     
+    .shape {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.15);
+        animation: float 10s ease-in-out infinite;
+        mix-blend-mode: lighten;
+    }
+    
+    .shape.circle {
+        border-radius: 50%;
+    }
+    
+    @keyframes float {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(20px, 20px) rotate(180deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    /* Updated Header Styles */
+    header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
+    }
+
+    /* Profile Picture Styling */
+    .profile-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .profile-pic {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        border: 2px solid #00bcd4;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .profile-pic:hover {
+        transform: scale(1.1) rotate(5deg);
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+    }
+
+    .username {
+        color: #00bcd4;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    /* Navigation Styling */
+    nav {
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 8px 20px;
+        border: 2px solid transparent;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    nav a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 188, 212, 0.2);
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+
+    nav a:hover::before {
+        left: 0;
+    }
+
+    nav a:hover {
+        border-color: #00bcd4;
+        color: #00bcd4;
+    }
+
+    nav a.active {
+        background: #00bcd4;
+        color: #000000;
+        font-weight: 600;
+    }
     /* Content container styling */
     .content-container {
       display: flex;
@@ -182,38 +272,40 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
+    font-weight: normal;
 }
 
 .profile-container:hover .username {
     opacity: 1;
 }
 
-@media (max-width: 690px) {
-    .logo, .profile-container, .profile-pic, .username {
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
+@media (max-width: 850px) {
+    /* Hide profile elements on mobile */
+    .profile-container {
+        display: none;
     }
 
+    /* Center header and navigation */
     header {
-        padding: 15px;
-        flex-direction: row;
+        padding: 20px 40px; /* Keep the same padding as desktop */
         justify-content: center;
+        background-color: rgba(0, 0, 0, 0.3);
     }
 
     nav {
-        width: 100%;
-        justify-content: space-around;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Keep consistent gap */
     }
 
     nav a {
-        font-size: 1.4rem;
+        font-size: 1.2rem; /* Keep same font size as desktop */
+        padding: 8px 20px; /* Keep same padding as desktop */
     }
 }
+
+
 
 
 
@@ -236,19 +328,19 @@
 </head>
 <body>
   
-    <header>
-      <div class="logo">
-          <div class="profile-container">
-              <img src="images/ueef.png" alt="Profile" class="profile-pic">
-              <span class="username">#ueefzzeezel</span>
-          </div>
-      </div>
-      <nav>
+  <header>
+    <div class="profile-container">
+        <div class="profile-pic">
+            <img src="images/ueef.png" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span class="username">#ueefzzeezel</span>
+    </div>
+    <nav>
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" class="active">Projects</a>
         <a href="#about">About</a>
     </nav>
-  </header>
+</header>
   
     
     <!-- Floating shapes background -->
