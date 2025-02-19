@@ -1,58 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Projects</title>
+    <meta name="description" content="Personal Portfolio Website">
+    <title>Portfolio | Welcome</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: #000000;
-            font-family: 'Montserrat', sans-serif;
-        }
-        header {
-            width: 100%;
-            background-color: #ffffff00;
-            color: white;
-            padding: 30px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-        header nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: clamp(15px, 3vw, 30px);
-        }
-        header nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.8rem;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: #00bcd4;
-        }
-    </style>
+</head>
+
+  <style>
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center; /* Centers horizontally */
+      align-items: center;    /* Centers vertically */
+      background: linear-gradient(160deg, #000000, #13242c, #003f5c);
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+    }
+    
+    /* Animated background shapes container (unchanged) */
+    
+    /* Header Styling */
+    header {
+      width: 100%;
+      background-color: #ffffff00;
+      color: white;
+      padding: 30px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(15px, 3vw, 30px);
+
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+    header nav a:hover {
+      color: #00bcd4;
+    }
+
+    /* Logo and Profile Picture Styling */
+/* Logo and Profile Picture Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.profile-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 80px;  /* Increased from 40px */
+    height: 80px; /* Increased from 40px */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #00bcd4;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.username {
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.profile-container:hover .username {
+    opacity: 1;
+}
+
+@media (max-width: 690px) {
+    .logo, .profile-container, .profile-pic, .username {
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    header {
+        padding: 15px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav a {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+
+
+    /* Add touch support for mobile devices */
+    @media (hover: none) {
+      .shape {
+        cursor: move;
+      }
+      
+      .profile-container .username {
+        opacity: 1;
+        position: static;
+        transform: none;
+        margin-left: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+  
     <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="projects.html">Projects</a>
-        </nav>
-    </header>
+      <div class="logo">
+          <div class="profile-container">
+              <img src="images/ueef.png" alt="Profile" class="profile-pic">
+              <span class="username">#ueefzzeezel</span>
+          </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="#about">About</a>
+    </nav>
+  </header>
 </body>
 </html>
