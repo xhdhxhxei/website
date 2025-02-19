@@ -1,172 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio Website">
-    <title>Portfolio | Welcome</title>
+    <meta name="description" content="Personal Portfolio Projects">
+    <title>Portfolio | Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-       * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html,
-    body {
-      height: 100%;
-    }
-    body {
-      margin: 0;
-      height: 100%;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      justify-content: center; /* Centers horizontally */
-      align-items: center;    /* Centers vertically */
-      background: linear-gradient(160deg, #000000, #13242c, #003f5c);
-      font-family: 'Montserrat', sans-serif;
-      position: relative;
-    }
-    
-    /* Animated background shapes container (unchanged) */
-    
-    /* Header Styling */
-    header {
-      width: 100%;
-      background-color: #ffffff00;
-      color: white;
-      padding: 30px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-    header nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(15px, 3vw, 30px);
+        body {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #000000, #13242c, #003f5c);
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
 
-    }
-    header nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-    }
-    header nav a:hover {
-      color: #00bcd4;
-    }
+        /* Header styles (keeping your original styling) */
+        header {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
+        }
 
-    /* Logo and Profile Picture Styling */
-/* Logo and Profile Picture Styling */
-.logo {
-    display: flex;
-    align-items: center;
-}
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-.profile-container {
-    position: relative;
-    cursor: pointer;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 20px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.profile-pic {
-    width: 80px;  /* Increased from 40px */
-    height: 80px; /* Increased from 40px */
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2.5px solid #00bcd4;
-    transition: transform 0.3s ease;
-}
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 188, 212, 0.2);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
 
-.profile-pic:hover {
-    transform: scale(1.1);
-}
+        nav a:hover::before {
+            left: 0;
+        }
 
-.username {
-    position: absolute;
-    left: 120%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.8rem;
-    color: white;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
+        nav a:hover {
+            border-color: #00bcd4;
+            color: #00bcd4;
+        }
 
-.profile-container:hover .username {
-    opacity: 1;
-}
+        nav a.active {
+            background: #00bcd4;
+            color: #000000;
+            font-weight: 600;
+        }
 
-@media (max-width: 690px) {
-    .logo, .profile-container, .profile-pic, .username {
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-    }
+        nav a.active:hover {
+            background: #00a0b7;
+            border-color: #00a0b7;
+            color: #000000;
+        }
+        /* Your existing header styles... */
 
-    header {
-        padding: 15px;
-        flex-direction: row;
-        justify-content: center;
-    }
+        /* Projects Grid Container */
+        .projects-container {
+            max-width: 1400px;
+            margin: 120px auto 40px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    nav {
-        width: 100%;
-        justify-content: space-around;
-    }
+        .project-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00bcd4;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 250px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    nav a {
-        font-size: 1.4rem;
-    }
-}
+        .project-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
 
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00bcd4;
+            margin-bottom: 15px;
+        }
 
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
 
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
+        .tech-tag {
+            background: #00bcd4;
+            color: #000000;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
 
-    /* Add touch support for mobile devices */
-    @media (hover: none) {
-      .shape {
-        cursor: move;
-      }
-      
-      .profile-container .username {
-        opacity: 1;
-        position: static;
-        transform: none;
-        margin-left: 10px;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 6px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  
     <header>
-      <div class="logo">
-          <div class="profile-container">
-              <img src="images/ueef.png" alt="Profile" class="profile-pic">
-              <span class="username">#ueefzzeezel</span>
-          </div>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="#about">About</a>
-    </nav>
-  </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-box">
+            <div>
+                <h2 class="project-title">Project One</h2>
+                <p class="project-description">A brief description of your first project and what it accomplishes.</p>
+            </div>
+            <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+            </div>
+        </div>
+
+        <!-- Repeat for Projects 2-6 -->
+        <!-- Copy the project-box div and modify content for each project -->
+
+    </main>
 </body>
 </html>
