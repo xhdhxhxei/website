@@ -1,330 +1,314 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal Portfolio Website">
     <title>Portfolio | Welcome</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
+  <style>
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    html, body {
-        height: 100%;
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
-    }
-
+    html,
     body {
-        margin: 0;
-        height: 100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(160deg, #000000, #13242c, #003f5c);
-        font-family: 'Montserrat', sans-serif;
-        position: relative;
+      height: 100%;
     }
-
+    body {
+      margin: 0;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center; /* Centers horizontally */
+      align-items: center;    /* Centers vertically */
+      background: linear-gradient(160deg, #000000, #13242c, #003f5c);
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+    }
+    
+    /* Animated background shapes container (unchanged) */
     .background-shapes {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
     }
-
     .shape {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.15);
-        animation: float 10s ease-in-out infinite;
-        mix-blend-mode: lighten;
-        cursor: grab;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.15);
+      animation: float 10s ease-in-out infinite;
+      mix-blend-mode: lighten;
+      cursor: grab;
     }
-
     .shape.circle {
-        border-radius: 50%;
+      border-radius: 50%;
     }
-
     @keyframes float {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        50% { transform: translate(20px, 20px) rotate(180deg); }
-        100% { transform: translate(0, 0) rotate(360deg); }
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate(20px, 20px) rotate(180deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
     }
-
+    
+    /* Header Styling */
     header {
-        width: 100%;
-        background-color: #ffffff00;
-        color: white;
-        padding: 30px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 2;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+      width: 100%;
+      background-color: #ffffff00;
+      color: white;
+      padding: 30px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
     }
-
     header nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: clamp(15px, 3vw, 30px);
-    }
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(15px, 3vw, 30px);
 
+    }
     header nav a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.8rem;
-        transition: color 0.3s ease;
+      color: white;
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
     }
-
     header nav a:hover {
-        color: #00bcd4;
+      color: #00bcd4;
     }
-
+    
+    /* Content container styling */
     .content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        z-index: 1;
-        padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 1; /* Place above background shapes */
+      padding: 0 20px;
     }
-
+    
+    /* Headline Styling */
     :root {
-        font-size: 16px;
+    font-size: 16px;
     }
 
     .headline {
-        color: #00bcd4;
-        font-size: clamp(2.5rem, 5vw, 6rem);
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      color: #00bcd4; /* Blue accent for headlines */
+      font-size: clamp(2.5rem, 5vw, 6rem);
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
-
+    
+    /* Description Styling */
     .description {
-        color: #f0f8ff;
-        font-size: clamp(1.2rem, 3vw, 2rem);
-        max-width: 80rem;
-        margin-bottom: 12%;
-        line-height: 1.6;
+      color: #f0f8ff; /* Light blue/white text for readability */
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      max-width: 80rem;
+      margin-bottom: 12%;
+      line-height: 1.6;
     }
-
+    
+    /* Blue Accent Button Styling */
     .center-button {
-        display: inline-block;
-        padding: 15px 8rem;
-        font-size: 1.8rem;
-        color: #00bcd4;
-        background-color: transparent;
-        border: 2px solid #00bcd4;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+      padding: 15px 8rem;
+      font-size: 1.8rem;
+      color: #00bcd4;
+      background-color: transparent;
+      border: 2px solid #00bcd4;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-
     .center-button:hover {
-        background-color: #00bcd4;
-        color: white;
+      background-color: #00bcd4;
+      color: white;
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
+    /* Logo and Profile Picture Styling */
+/* Logo and Profile Picture Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.profile-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 80px;  /* Increased from 40px */
+    height: 80px; /* Increased from 40px */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #00bcd4;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.username {
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.profile-container:hover .username {
+    opacity: 1;
+}
+
+    /* Tablet */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
     }
-
-    .profile-container {
-        position: relative;
-        cursor: pointer;
+    
+    nav {
+        gap: 15px;
     }
-
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2.5px solid #00bcd4;
-        transition: transform 0.3s ease;
+    
+    .center-button {
+        padding: 12px 4rem;
     }
+}
 
-    .profile-pic:hover {
-        transform: scale(1.1);
+/* Mobile */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+
     }
-
-    .username {
-        position: absolute;
-        left: 120%;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.8rem;
-        color: white;
-        white-space: nowrap;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
+    
+    nav {
+        width: 100%;
+        justify-content: space-around;
     }
-
-    .profile-container:hover .username {
-        opacity: 1;
+    
+    .content-container {
+        padding: 0 15px;
     }
+}
 
-    /* Mobile and Tablet Responsive Design */
-    @media (max-width: 768px) {
-        header {
-            padding: 15px;
-            position: relative;
-            margin-bottom: 20px;
-            flex-direction: column;
-        }
 
-        .logo {
-            margin-bottom: 15px;
-        }
-
-        header nav {
-            width: 100%;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        header nav a {
-            font-size: 1.4rem;
-        }
-
-        .profile-pic {
-            width: 60px;
-            height: 60px;
-        }
-
-        .content-container {
-            padding: 20px;
-            margin-top: 120px;
-        }
-
-        .center-button {
-            padding: 12px 3rem;
-            font-size: 1.4rem;
-            width: 90%;
-            max-width: 300px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        header {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .content-container {
-            margin-top: 160px;
-        }
-
-        nav {
-            width: 100%;
-            justify-content: space-around;
-        }
-    }
-
+    /* Add touch support for mobile devices */
     @media (hover: none) {
-        .shape {
-            display: none;
-        }
-
-        .profile-container .username {
-            position: static;
-            opacity: 1;
-            transform: none;
-            margin-left: 10px;
-            font-size: 1.2rem;
-        }
+      .shape {
+        cursor: move;
+      }
+      
+      .profile-container .username {
+        opacity: 1;
+        position: static;
+        transform: none;
+        margin-left: 10px;
+      }
     }
-</style>
-
+  </style>
+</head>
 <body>
+  
     <header>
-        <div class="logo">
-            <div class="profile-container">
-                <img src="images/ueef.png" alt="Profile" class="profile-pic">
-                <span class="username">#ueefzzeezel</span>
-            </div>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
+      <div class="logo">
+          <div class="profile-container">
+              <img src="images/ueef.png" alt="Profile" class="profile-pic">
+              <span class="username">#ueefzzeezel</span>
+          </div>
+      </div>
+      <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+      </nav>
+  </header>
+  
+    
+    <!-- Floating shapes background -->
     <div class="background-shapes">
-        <div class="shape circle" style="width: 100px; height: 100px; top: 10%; left: 15%; animation-duration: 8s;"></div>
-        <div class="shape square" style="width: 120px; height: 120px; top: 50%; left: 70%; animation-duration: 12s;"></div>
-        <div class="shape circle" style="width: 100px; height: 100px; top: 80%; left: 30%; animation-duration: 10s;"></div>
-        <div class="shape square" style="width: 130px; height: 130px; top: 20%; left: 80%; animation-duration: 14s;"></div>
-        <div class="shape circle" style="width: 100px; height: 100px; top: 30%; left: 40%; animation-duration: 9s;"></div>
-        <div class="shape square" style="width: 110px; height: 110px; top: 60%; left: 10%; animation-duration: 11s;"></div>
-        <div class="shape circle" style="width: 100px; height: 100px; top: 5%; left: 60%; animation-duration: 13s;"></div>
-        <div class="shape square" style="width: 140px; height: 140px; top: 75%; left: 85%; animation-duration: 15s;"></div>
-        <div class="shape circle" style="width: 100px; height: 100px; top:45%; left:25%; animation-duration:7s;"></div>
+      <div class="shape circle" style="width: 100px; height: 100px; top: 10%; left: 15%; animation-duration: 8s;"></div>
+      <div class="shape square" style="width: 120px; height: 120px; top: 50%; left: 70%; animation-duration: 12s;"></div>
+      <div class="shape circle" style="width: 100px; height: 100px; top: 80%; left: 30%; animation-duration: 10s;"></div>
+      <div class="shape square" style="width: 130px; height: 130px; top: 20%; left: 80%; animation-duration: 14s;"></div>
+      <div class="shape circle" style="width: 100px; height: 100px; top: 30%; left: 40%; animation-duration: 9s;"></div>
+      <div class="shape square" style="width: 110px; height: 110px; top: 60%; left: 10%; animation-duration: 11s;"></div>
+      <div class="shape circle" style="width: 100px; height: 100px; top: 5%; left: 60%; animation-duration: 13s;"></div>
+      <div class="shape square" style="width: 140px; height: 140px; top: 75%; left: 85%; animation-duration: 15s;"></div>
+      <div class="shape circle" style="width: 100px; height: 100px; top:45%; left:25%; animation-duration:7s;"></div>
     </div>
-
+    
+    <!-- Centered Content -->
     <div class="content-container">
-        <h1 class="headline">Welcome to my portfolio!</h1>
-        <p class="description">Made this for my school application. Feel free to explore and click "Continue" to view my projects — or navigate using the menu above.</p>
-        <button class="center-button" onclick="alert('Button Clicked!')">Continue</button>
+      <h1 class="headline">Welcome to my portfolio!</h1>
+      <p class="description">Made this for my school application. Feel free to explore and click "Continue" to view my projects — or navigate using the menu above.</p>
+      <button class="center-button" onclick="alert('Button Clicked!')">Continue</button> 
     </div>
-
+  
     <script>
-        const shapes = document.querySelectorAll('.shape, .triangle');
-        let selectedElement = null;
-        let offset = { x: 0, y: 0 };
-
-        shapes.forEach(shape => {
-            shape.addEventListener('mousedown', dragStart);
-        });
-
-        function dragStart(e) {
-            selectedElement = e.target;
-            selectedElement.style.animationPlayState = "paused";
-
-            const rect = selectedElement.getBoundingClientRect();
-            offset.x = e.clientX - rect.left;
-            offset.y = e.clientY - rect.top;
-
-            document.addEventListener('mousemove', dragging);
-            document.addEventListener('mouseup', dragEnd);
+      // Draggable shapes functionality remains unchanged
+      const shapes = document.querySelectorAll('.shape, .triangle');
+      let selectedElement = null;
+      let offset = { x: 0, y: 0 };
+      
+      shapes.forEach(shape => {
+        shape.addEventListener('mousedown', dragStart);
+      });
+      
+      function dragStart(e) {
+        selectedElement = e.target;
+        selectedElement.style.animationPlayState = "paused";
+        
+        const rect = selectedElement.getBoundingClientRect();
+        offset.x = e.clientX - rect.left;
+        offset.y = e.clientY - rect.top;
+      
+        document.addEventListener('mousemove', dragging);
+        document.addEventListener('mouseup', dragEnd);
+      }
+      
+      function dragging(e) {
+        if (!selectedElement) return;
+        selectedElement.style.left = (e.clientX - offset.x) + 'px';
+        selectedElement.style.top = (e.clientY - offset.y) + 'px';
+      }
+      
+      function dragEnd() {
+        if (selectedElement) {
+          selectedElement.style.animationPlayState = "running";
+          selectedElement = null;
         }
-
-        function dragging(e) {
-            if (!selectedElement) return;
-            selectedElement.style.left = (e.clientX - offset.x) + 'px';
-            selectedElement.style.top = (e.clientY - offset.y) + 'px';
-        }
-
-        function dragEnd() {
-            if (selectedElement) {
-                selectedElement.style.animationPlayState = "running";
-                selectedElement = null;
-            }
-            document.removeEventListener('mousemove', dragging);
-            document.removeEventListener('mouseup', dragEnd);
-        }
+        document.removeEventListener('mousemove', dragging);
+        document.removeEventListener('mouseup', dragEnd);
+      }
     </script>
 </body>
 </html>
