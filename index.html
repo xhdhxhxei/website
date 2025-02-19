@@ -65,7 +65,7 @@
       }
     }
     
-    /* Header Styling */
+
     .background-shapes {
         position: absolute;
         top: 0;
@@ -93,7 +93,6 @@
         100% { transform: translate(0, 0) rotate(360deg); }
     }
 
-    /* Updated Header Styles */
     header {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.3);
@@ -111,7 +110,6 @@
         box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
     }
 
-    /* Profile Picture Styling */
     .profile-container {
         display: flex;
         align-items: center;
@@ -142,7 +140,6 @@
         transition: all 0.3s ease;
     }
 
-    /* Navigation Styling */
     nav {
         display: flex;
         gap: 30px;
@@ -186,7 +183,7 @@
         color: #000000;
         font-weight: 600;
     }
-    /* Content container styling */
+
     .content-container {
       display: flex;
       flex-direction: column;
@@ -196,13 +193,13 @@
       padding: 0 20px;
     }
     
-    /* Headline Styling */
+
     :root {
     font-size: 16px;
     }
 
     .headline {
-      color: #00bcd4; /* Blue accent for headlines */
+      color: #00bcd4;
       font-size: clamp(2.5rem, 5vw, 6rem);
       margin-bottom: 40px;
       text-transform: uppercase;
@@ -210,16 +207,16 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
     
-    /* Description Styling */
+
     .description {
-      color: #f0f8ff; /* Light blue/white text for readability */
+      color: #f0f8ff; 
       font-size: clamp(1.2rem, 3vw, 2rem);
       max-width: 80rem;
       margin-bottom: 12%;
       line-height: 1.6;
     }
     
-    /* Blue Accent Button Styling */
+
     .center-button {
       display: inline-block;
       padding: 15px 8rem;
@@ -235,9 +232,6 @@
       background-color: #00bcd4;
       color: white;
     }
-
-    /* Logo and Profile Picture Styling */
-/* Logo and Profile Picture Styling */
 .logo {
     display: flex;
     align-items: center;
@@ -285,7 +279,7 @@
         display: none;
     }
 
-    /* Center header and navigation */
+
     header {
         padding: 20px 40px; /* Keep the same padding as desktop */
         justify-content: center;
@@ -296,7 +290,7 @@
         width: auto;
         display: flex;
         justify-content: center;
-        gap: 20px; /* Keep consistent gap */
+        gap: 20px;
     }
 
     nav a {
@@ -311,7 +305,7 @@
 
 
 
-    /* Add touch support for mobile devices */
+/* Mobile styles */
     @media (hover: none) {
       .shape {
         cursor: move;
@@ -356,7 +350,6 @@
       <div class="shape circle" style="width: 100px; height: 100px; top:45%; left:25%; animation-duration:7s;"></div>
     </div>
     
-    <!-- Centered Content -->
     <div class="content-container">
       <h1 class="headline">Welcome to my portfolio!</h1>
       <p class="description">Made this for my school application. Feel free to explore and click "Continue" to view my projects — or navigate using the menu above.</p>
@@ -364,7 +357,6 @@
     </div>
   
     <script>
-      // Draggable shapes functionality remains unchanged
       const shapes = document.querySelectorAll('.shape, .triangle');
       let selectedElement = null;
       let offset = { x: 0, y: 0 };
