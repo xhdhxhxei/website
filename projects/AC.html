@@ -231,39 +231,37 @@
                 <div class="article-meta">
                     <span class="article-date">2024</span>
                     <span class="tech-tag">LuaU</span>
-                    <span class="tech-tag">C#</span>
                 </div>
                 <a href="../projects.html" class="back-button">← Back to Projects</a>
             </div>
-            <h1 class="article-title">Conveyor System</h1>
+            <h1 class="article-title">Anti Cheat</h1>
         </div>
         </div>
 
         <div class="article-content">
             <section class="article-section">
                 <h2>Overview</h2>
-                <p>A project I've started in 2024, using a bezier curve to find a smooth path to a designated location. 
-                   Inspiration for this system comes mainly from a game called "Satisfactory". The system works by getting two positions, position A and position B, the system then creates position C and D, them being the middle of the distance between A and B, and counterclockwise.
-                   It then makes a bezier curve with the four points, and then creates a path for the conveyor to follow. The system also calculates triangles, which are used to create the conveyor mesh. This project is made intierly in LuaU, but due to limited documentation, I had to
-                   use C# to translate other documentation. The project is still in development, and I plan to add more features to it.
+                <p>The script works by forcing two types of local scripts (A normal script and a decoy) into PlayerGUI. Then the server sends out a message to both, and the normal script sends a message back to the server. If the server receives the message, the player is not exploiting. If the server does not receive the message, the player is exploiting.
+                    If the decoy returns a message, the player is exploiting, we can insure this way that local scripts and remote events are protected, as we never can know what is inside each script. Only the server keeps a registry of every created script there is.
+                    The script also regularly replaces and renames random script to make it even more confusing for the exploiter. The script features a settings script, where you can edit how often what gets checked, it connects to the newly added ban API
+                    which is used as an IP ban, then logs their ban using webhooks. Its easily expandable to feature databases and websites. There is a saying that all client sided scripts are bypassable, but I really dont know how bypassing this is possible.
                 </p>
                 <div class="article-image">
-                    <img src="../images/ConCircle.png" alt="Project Preview">
-                    <img src="../images/ConSharp.png" alt="Project Preview">
+                    <img src="../images/AC.png" alt="Project Preview">
                 </div>
             </section>
 
             <section class="article-section">
                 <h2>Challenges & Solutions</h2>
-                <p>Like I mentioned above, there isnt a lot of documentation on this topic, the best I could find were some articles and a video in C#, which I had to translate in order to understand whats going on.
-                    The overall project wasnt that hard to make, but the bezier curve was a bit tricky, I had to do a lot of testing to get it right. The triangles were also a bit tricky, but I managed to get it right after a few tries.
-                    The project still has a lot of potential, maybe when I get the time ill make it into a full on game.
+                <p>Of course, force spamming scripts and executing them causes some lag, which surprisingly isnt really noticable when used in moderation. I left a few notes in all the script explaining what they do, and their ideal setting. I dont recommend
+                    touching anything other than the settings page. As the script is still in testing, Ive added a 'recovery' script, which takes in account server lag, if it becomes too great, the script stops and restarts, clearing all the scripts.
+                    Last thing ill note is that spamming a remote event is possible, and makes the whole message system backed up, which in our case doesnt matter as this just bans the player quicker.
                 </p>
             </section>
 
             <section class="article-section">
                 <h2>Source code</h2>
-                <p>The source code is too long to put here, you can find it on my github ("Satisfactory Conveyor System").</p>
+                <p>I managed to upload the source code, even if its not that readable, its still something. Go to my profile and check it out, its called "Anticheat" </p>
                 </p>
             </section>
 
